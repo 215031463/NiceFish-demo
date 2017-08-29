@@ -1,0 +1,15 @@
+<div [formGroup]="form">
+  <label [attr.for]="field.key" class="col-sm-2 control-label">{{ field.label }}</label>
+  <div class="col-sm-10">
+    <div [ngSwitch]="field.controlType">
+      <input *ngSwitchCase="'textbox'"
+             [formControlName]="field.key"
+             [id]="field.key" [type]="field.type" [value]="field.value" [placeholder]="field.placeholder" class="form-control">
+      <textarea *ngSwitchCase="'textarea'"
+                [formControlName]="field.key"
+                [id]="field.key" [rows]="field.rows" [value]="field.value" cols="30" class="form-control"></textarea>
+      <img *ngSwitchCase="'image'"
+           [src]="field.src" [alt]="field.title">
+    </div>
+  </div>
+</div>
