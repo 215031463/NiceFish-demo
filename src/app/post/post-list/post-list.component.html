@@ -1,3 +1,43 @@
-<p>
-  post-list works!
-</p>
+<div class="post-list-container">
+  <form class="form-vertical" role="form">
+    <div class="row">
+      <div class="col-sm-10">
+        <div class="input-group">
+          <input type="text" id="searchText" name="searchText" class="form-control" placeholder="{{ 'search' | translate }}"
+                 [(ngModel)]="searchText"
+                 (keyup)="searchChanged($event)">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"
+                    (click)="searchChanged($event)"></i>{{ 'search' | translate }}</button>
+          </span>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="input-group">
+          <button type="button" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"
+                  (click)="goToWrite()"></i>{{ 'post.publish' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div *ngFor="let post of postList" class="post-item-container">
+        <h4>
+          <a [routerLink]="['/post/post-detail', post.postId]">{{ post.title }}</a>
+        </h4>
+        <p class="">
+          <i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;{{ post.likedTimes }}&nbsp;&nbsp;&nbsp;&nbsp;
+          <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;{{ post.commentTimes }}&nbsp;&nbsp;&nbsp;&nbsp;
+          <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;{{ post.readTimes }}&nbsp;&nbsp;&nbsp;&nbsp;{{ post.userName }}
+          &nbsp;&nbsp;&nbsp;&nbsp;{{ post.postTime }}
+        </p>
+      </div>
+      <p-paginator [rows]="itemsPerPage"
+                   [totalRecords]="totalRecords"
+                   [first]="offset"
+                   (onPageChange)="pageChanged($event)"></p-paginator>
+    </div>
+  </div>
+</div>
