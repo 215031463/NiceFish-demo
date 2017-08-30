@@ -28,6 +28,7 @@ import { FormControlComponent } from '../user/user-profile/dynamic-form/form-con
     UserLoginComponent,
     UserInfoComponent,
     UserProfileComponent
-  ]
+  ],
+  providers: []
 })
 export class SharedModule { }

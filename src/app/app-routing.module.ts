@@ -20,11 +20,11 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomeModle'
+    loadChildren: './home/home.module#HomeModule'
   },
   {
     path: 'posts',
-    loadChildren: './home/home.module#HomeModle'
+    loadChildren: './home/home.module#HomeModule'
   },
   {
     path: 'post',
