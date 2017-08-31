@@ -59,7 +59,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
       this.translate.addLangs(['zh', 'en']);
       this.translate.setDefaultLang('zh');
-
       const browserLang = this.translate.getBrowserLang();
       console.log('检测到浏览器语言为>' + browserLang);
       this.translate.use(browserLang.match('/zh|en/') ? browserLang : 'zh');
