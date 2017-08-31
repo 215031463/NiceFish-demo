@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule, JsonpModule, Http } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
 import { GrowlModule } from 'primeng/components/growl/growl';
@@ -38,6 +39,7 @@ export function createTranslateLoader(http: Http) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     GrowlModule,
     TranslateModule.forRoot({

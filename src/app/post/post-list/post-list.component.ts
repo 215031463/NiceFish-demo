@@ -96,13 +96,13 @@ export class PostListComponent implements OnInit {
       });
 
     // 订阅searchTextStream流
-    this.searchTextStream
-      .debounceTime(500)
-      .distinctUntilChanged()
-      .subscribe(searchText => {
-        console.log(searchText);
-        this.loadData(this.searchText);
-      });
+    // this.searchTextStream
+    //   .debounceTime(500)
+    //   .distinctUntilChanged()
+    //   .subscribe(searchText => {
+    //     console.log(searchText);
+    //     this.loadData(this.searchText);
+    //   });
   }
 
   public loadData(searchText: string) {

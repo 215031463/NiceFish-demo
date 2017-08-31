@@ -4,15 +4,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { UserRegisterService } from './user-register.service';
 import { User } from '../model/user-model';
-import { fadeInOut } from '../../animations/fade-in-out';
+import { flyInOut } from '../../animations/fly-in-out';
 
+import { EqualValidate } from './equal-validator';
 
 
 @Component({
   selector: 'app-user-register',
   templateUrl: './user-register.component.html',
   styleUrls: ['./user-register.component.scss'],
-  animations: [fadeInOut]
+  animations: [ flyInOut ]
 })
 export class UserRegisterComponent implements OnInit {
 
@@ -31,11 +32,11 @@ export class UserRegisterComponent implements OnInit {
 
   public validatorMessages = {
     'userName': {
-      'requred': '用户名必须输入',
+      'required': '用户名必须输入',
       'minlength': '用户名4到32个字符'
     },
-    'nickNmae': {
-      'requred': '昵称必须输入',
+    'nickName': {
+      'required': '昵称必须输入',
       'minlength': '昵称2到32个字符'
     },
     'email': {
@@ -66,6 +67,7 @@ export class UserRegisterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.buildForm();
   }
 
   public buildForm(): void {
@@ -100,11 +102,12 @@ export class UserRegisterComponent implements OnInit {
           Validators.minLength(8)
         ]
       ],
-      'conformPassword': [
+      'confirmPassword': [
         this.userInfo.confirmPassword,
         [
           Validators.required,
-          Validators.minLength(8)
+          Validators.minLength(8),
+          EqualValidate('password')
         ]
       ],
       'vcode': [

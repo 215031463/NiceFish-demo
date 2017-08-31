@@ -25,7 +25,6 @@ export class UserLoginComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private routerState: RouterState,
     private userLoginService: UserLoginService
   ) { }
 
@@ -35,7 +34,8 @@ export class UserLoginComponent implements OnInit {
     console.log(this.activatedRoute);
 
     let activatedRouteSnapshot: ActivatedRouteSnapshot = this.activatedRoute.snapshot;
-    let routerStateSnapshot: RouterStateSnapshot = this.routerState.snapshot;
+    let routerState = this.router.routerState;
+    let routerStateSnapshot: RouterStateSnapshot = routerState.snapshot;
     console.log(routerStateSnapshot === this.router.routerState.snapshot);
 
     console.log(activatedRouteSnapshot);

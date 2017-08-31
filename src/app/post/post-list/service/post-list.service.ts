@@ -26,8 +26,8 @@ export class PostListService {
     requestOptions = new RequestOptions({ search: params });
 
     return this.http.get(url, requestOptions)
-      .map((res: Response) => res.json())
-      .catch((err: any) => Observable.throw(err || 'server error'));
+      .map((res: Response) => res.json());
+      // .catch((err: any) => Observable.throw(err || 'server error'));
   }
 
   public getPostNumber(): number {

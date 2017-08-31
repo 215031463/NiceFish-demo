@@ -17,12 +17,12 @@ export class PostDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private activatedRoute, ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private postDetailService: PostDetailService
   ) { }
 
   ngOnInit() {
-    this.activatedRoute.ParamMap
+    this.activatedRoute.paramMap
       .subscribe((params: ParamMap) => {
         this.getPost(+params.get('postId'));
       });
