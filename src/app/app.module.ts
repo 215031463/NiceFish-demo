@@ -20,6 +20,7 @@ import { ChartComponent } from './chart/chart.component';
 import { GaodeMapComponent } from './map/gaode-map/gaode-map.component';
 import { AmapComponent } from './map/gaode-map/amap/amap.component';
 import { JsplumbDemoComponent } from './jsplumb-demo/jsplumb-demo.component';
+import { EchartOptionDirective1 } from './chart/echart-option.directive';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -33,7 +34,8 @@ export function createTranslateLoader(http: Http) {
     ChartComponent,
     GaodeMapComponent,
     AmapComponent,
-    JsplumbDemoComponent
+    JsplumbDemoComponent,
+    EchartOptionDirective1
   ],
   imports: [
     BrowserModule,
